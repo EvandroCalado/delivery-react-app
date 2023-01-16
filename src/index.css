@@ -1,17 +1,11 @@
-/* google fonts */
-
 @import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Istok+Web&display=swap");
-
-/* reset default style */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* base style */
 
 body {
   background: #fcfcfc;
@@ -24,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "RocknRoll One", sans-serif !important;
+  font-family: "RocknRoll One", sans-serif;
 }
 
 a {
