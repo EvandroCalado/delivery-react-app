@@ -16,7 +16,7 @@
 .logo h5 {
   font-weight: 600;
   font-size: 1rem;
-  color: #212245;
+  color: var(--color-secondary);
   margin-top: -10px;
   margin-bottom: 0;
 }
@@ -24,21 +24,21 @@
 .menu a {
   font-weight: 600;
   font-size: 1rem;
-  color: #212245;
+  color: var(--color-secondary);
   transition: 0.3s;
 }
 
 .menu a:hover {
-  color: #df2020;
+  color: var(--color-primary);
 }
 
 .active__menu {
-  color: #df2020 !important;
+  color: var(--color-primary) !important;
 }
 
 .nav__right i {
   font-size: 1.3rem;
-  color: #212245;
+  color: var(--color-secondary);
   cursor: pointer;
 }
 
@@ -50,7 +50,7 @@
   position: absolute;
   top: 18px;
   right: -10px;
-  background-color: #df2020;
+  background-color: var(--color-primary);
   color: #fff;
   width: 18px;
   height: 18px;
