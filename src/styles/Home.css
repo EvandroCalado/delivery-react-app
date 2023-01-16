@@ -58,3 +58,20 @@
   border-radius: 50%;
   font-weight: 500;
 }
+
+.feature__subtitle {
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.feature__title span {
+  color: var(--color-primary);
+}
+
+.feature__text {
+  color: #777;
+}
+
+.feature__item p {
+  color: #777;
+}
