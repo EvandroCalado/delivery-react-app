@@ -15,6 +15,9 @@ import foodCategoryImg01 from "../assets/images/hamburger.png";
 import foodCategoryImg02 from "../assets/images/pizza.png";
 import foodCategoryImg03 from "../assets/images/bread.png";
 
+import ProductCard from "../components/Ui/ProductCard/ProductCard";
+import { useEffect, useState } from "react";
+
 const featureData = [
   {
     title: "Quick Delivery",
@@ -34,6 +37,39 @@ const featureData = [
 ];
 
 const Home = () => {
+  const [category, setCategory] = useState("ALL");
+  const [allProducts, setAllProducts] = useState(products);
+
+  useEffect(() => {
+    if (category === "ALL") {
+      setAllProducts(products);
+    }
+
+    if (category === "BURGER") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Burger"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === "PIZZA") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Pizza"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+
+    if (category === "BREAD") {
+      const filteredProducts = products.filter(
+        (item) => item.category === "Bread"
+      );
+
+      setAllProducts(filteredProducts);
+    }
+  }, [category]);
+
   return (
     <Helmet title="Home">
       <section>
@@ -128,22 +164,50 @@ const Home = () => {
               <h2>Popular Foods</h2>
             </Col>
             <Col lg="12">
-              <div className="food__category">
-                <button className="all__btn">All</button>
-                <button>
+              <div className="food__category d-flex align-items-center justify-content-center gap-4">
+                <button
+                  onClick={() => setCategory("ALL")}
+                  className={`all__btn ${
+                    category === "ALL" ? "foodBtnActive" : ""
+                  } `}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => setCategory("BURGER")}
+                  className={`d-flex align-items-center gap-2 ${
+                    category === "BURGER" ? "foodBtnActive" : ""
+                  }`}
+                >
                   <img src={foodCategoryImg01} alt="burger" />
                   Burger
                 </button>
-                <button>
+                <button
+                  onClick={() => setCategory("PIZZA")}
+                  className={`d-flex align-items-center gap-2 ${
+                    category === "PIZZA" ? "foodBtnActive" : ""
+                  }`}
+                >
                   <img src={foodCategoryImg02} alt="Pizza" />
                   Burger
                 </button>
-                <button>
+                <button
+                  onClick={() => setCategory("BREAD")}
+                  className={`d-flex align-items-center gap-2 ${
+                    category === "BREAD" ? "foodBtnActive" : ""
+                  }`}
+                >
                   <img src={foodCategoryImg03} alt="Bread" />
                   Burger
                 </button>
               </div>
             </Col>
+
+            {allProducts.map((item) => (
+              <Col key={item.id} lg="3" md="4" className="mt-5">
+                <ProductCard item={item} />
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
